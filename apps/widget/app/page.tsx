@@ -1,6 +1,6 @@
 "use client"
 
-// import { useQuery } from "convex/react"
+import { useQuery } from "convex/react"
 import { api } from "@workspace/backend/_generated/api"
 import { useVapi } from "../modules/widget/hooks/use-vapi"
 import { Button } from "@workspace/ui/components/button"
