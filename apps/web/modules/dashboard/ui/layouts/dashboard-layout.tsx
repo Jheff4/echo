@@ -1,13 +1,20 @@
 import { AuthGuard } from "@/modules/auth/ui/components/auth-guard"
 import { OrganizationGuard } from "@/modules/auth/ui/components/organization-guard"
+import { SidebarProvider } from "@workspace/ui/components/sidebar"
+import { cookies } from "next/headers"
 
-export const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+export const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
+  const cookieStore = await cookies()
+  const defaultOpen = cookieStore.get("sidebar-state")?.value === "true"
+
   return (
     <AuthGuard>
       <OrganizationGuard>
-        <main className="flex flex-1 flex-col">
-          {children}
-        </main>
+        <SidebarProvider defaultOpen={defaultOpen}>
+          <main className="flex flex-1 flex-col">
+            {children}
+          </main>
+        </SidebarProvider>
       </OrganizationGuard>
     </AuthGuard>
   )
