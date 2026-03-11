@@ -12,7 +12,7 @@ export const DashboardLayout = async ({ children }: { children: React.ReactNode 
       <OrganizationGuard>
         <SidebarProvider defaultOpen={defaultOpen}>
           <main className="flex flex-1 flex-col">
-            {children}.  
+            {children}
           </main>
         </SidebarProvider>
       </OrganizationGuard>
