@@ -20,6 +20,7 @@ export default defineSchema({
       phoneNumber: v.optional(v.string()),
     }),
   })
+  
   .index("by_organization_id", ["organizationId"]),
   plugins: defineTable({
     organizationId: v.string(),
