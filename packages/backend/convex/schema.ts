@@ -7,6 +7,7 @@ export default defineSchema({
     status: v.string(),
   })
     .index("by_organization_id", ["organizationId"]),
+    
   widgetSettings: defineTable({
     organizationId: v.string(),
     greetMessage: v.string(),
@@ -20,8 +21,8 @@ export default defineSchema({
       phoneNumber: v.optional(v.string()),
     }),
   })
-  
-  .index("by_organization_id", ["organizationId"]),
+    .index("by_organization_id", ["organizationId"]),
+
   plugins: defineTable({
     organizationId: v.string(),
     service: v.union(v.literal("vapi")),
@@ -29,6 +30,7 @@ export default defineSchema({
   })
     .index("by_organization_id", ["organizationId"])
     .index("by_organization_id_and_service", ["organizationId", "service"]),
+
   conversations: defineTable({
     threadId: v.string(),
     organizationId: v.string(),
@@ -43,6 +45,7 @@ export default defineSchema({
     .index("by_contact_session_id", ["contactSessionId"])
     .index("by_thread_id", ["threadId"])
     .index("by_status_and_organization_id", ["status", "organizationId"]),
+
   contactSessions: defineTable({
     name: v.string(),
     email: v.string(),
@@ -63,8 +66,9 @@ export default defineSchema({
       currentUrl: v.optional(v.string()),
     }))
   })
-  .index("by_organization_id", ["organizationId"])
-  .index("by_expires_at", ["expiresAt"]),
+    .index("by_organization_id", ["organizationId"])
+    .index("by_expires_at", ["expiresAt"]),
+
   users: defineTable({
     name: v.string(),
   }),

@@ -1,7 +1,7 @@
 "use client";
 
 // import { useAtomValue } from "jotai";
-// import { WidgetAuthScreen } from "@/modules/widget/ui/screens/widget-auth-screen";
+import { WidgetAuthScreen } from "@/modules/widget/ui/screens/widget-auth-screen";
 // import { screenAtom } from "@/modules/widget/atoms/widget-atoms";
 // import { WidgetErrorScreen } from "@/modules/widget/ui/screens/widget-error-screen";
 // import { WidgetLoadingScreen } from "@/modules/widget/ui/screens/widget-loading-screen";
@@ -18,16 +18,16 @@ interface Props {
 export const WidgetView = ({ organizationId }: Props) => {
   // const screen = useAtomValue(screenAtom);
 
-  // const screenComponents = {
+  const screenComponents = {
   //   loading: <WidgetLoadingScreen organizationId={organizationId} />,
   //   error: <WidgetErrorScreen />,
-  //   auth: <WidgetAuthScreen />,
+    auth: <WidgetAuthScreen />,
   //   voice: <WidgetVoiceScreen />,
   //   inbox: <WidgetInboxScreen />,
   //   selection: <WidgetSelectionScreen />,
   //   chat: <WidgetChatScreen />,
   //   contact: <WidgetContactScreen />,
-  // }
+  }
 
   return (
     <main className="flex h-full w-full flex-col overflow-hidden rounded-xl border bg-muted">

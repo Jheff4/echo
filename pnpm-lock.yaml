@@ -87,6 +87,9 @@ importers:
 
   apps/widget:
     dependencies:
+      '@hookform/resolvers':
+        specifier: ^5.2.0
+        version: 5.2.2(react-hook-form@7.71.2(react@19.2.1))
       '@vapi-ai/web':
         specifier: ^2.5.2
         version: 2.5.2
@@ -117,6 +120,15 @@ importers:
       react-dom:
         specifier: ^19.2.1
         version: 19.2.1(react@19.2.1)
+      react-hook-form:
+        specifier: ^7.61.1
+        version: 7.71.2(react@19.2.1)
+      resolvers@^5.2.0:
+        specifier: link:hookform/resolvers@^5.2.0
+        version: link:hookform/resolvers@^5.2.0
+      zod:
+        specifier: ^3.24.2
+        version: 3.25.76
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4.1.17
@@ -156,7 +168,7 @@ importers:
         version: 1.31.7(@clerk/clerk-react@5.61.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react@19.2.1)
       typescript:
         specifier: latest
-        version: 5.9.3
+        version: 6.0.2
 
   packages/eslint-config:
     devDependencies:
@@ -207,7 +219,7 @@ importers:
         version: link:../typescript-config
       typescript:
         specifier: latest
-        version: 5.9.3
+        version: 6.0.2
 
   packages/typescript-config: {}
 
@@ -4951,6 +4963,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  typescript@6.0.2:
+    resolution: {integrity: sha512-bGdAIrZ0wiGDo5l8c++HWtbaNCWTS4UTv7RaTH/ThVIgjkveJt83m74bBHMJkuCbslY8ixgLBVZJIOiQlQTjfQ==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   uglify-js@3.19.3:
     resolution: {integrity: sha512-v3Xu+yuwBXisp6QYTcH4UbH+xYJXqnq2m/LtQVWKWzYc1iehYnLixoQDN9FH6/j9/oybfd6W9Ghwkl8+UMKTKQ==}
     engines: {node: '>=0.8.0'}
@@ -5525,6 +5542,11 @@ snapshots:
     dependencies:
       '@standard-schema/utils': 0.3.0
       react-hook-form: 7.71.2(react@19.1.1)
+
+  '@hookform/resolvers@5.2.2(react-hook-form@7.71.2(react@19.2.1))':
+    dependencies:
+      '@standard-schema/utils': 0.3.0
+      react-hook-form: 7.71.2(react@19.2.1)
 
   '@humanfs/core@0.19.1': {}
 
@@ -9532,6 +9554,10 @@ snapshots:
     dependencies:
       react: 19.1.1
 
+  react-hook-form@7.71.2(react@19.2.1):
+    dependencies:
+      react: 19.2.1
+
   react-is@16.13.1: {}
 
   react-is@18.3.1: {}
@@ -10190,6 +10216,8 @@ snapshots:
   typescript@5.9.2: {}
 
   typescript@5.9.3: {}
+
+  typescript@6.0.2: {}
 
   uglify-js@3.19.3:
     optional: true
