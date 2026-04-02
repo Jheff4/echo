@@ -1,8 +1,8 @@
 "use client";
 
-// import { useAtomValue } from "jotai";
+import { useAtomValue } from "jotai";
 import { WidgetAuthScreen } from "@/modules/widget/ui/screens/widget-auth-screen";
-// import { screenAtom } from "@/modules/widget/atoms/widget-atoms";
+import { screenAtom } from "@/modules/widget/atoms/widget-atoms";
 // import { WidgetErrorScreen } from "@/modules/widget/ui/screens/widget-error-screen";
 // import { WidgetLoadingScreen } from "@/modules/widget/ui/screens/widget-loading-screen";
 // import { WidgetSelectionScreen } from "@/modules/widget/ui/screens/widget-selection-screen";
@@ -16,23 +16,22 @@ interface Props {
 };
 
 export const WidgetView = ({ organizationId }: Props) => {
-  // const screen = useAtomValue(screenAtom);
+  const screen = useAtomValue(screenAtom);
 
   const screenComponents = {
-  //   loading: <WidgetLoadingScreen organizationId={organizationId} />,
-  //   error: <WidgetErrorScreen />,
+    loading: <p>Loading...</p>,
+    error: <p>Error</p>,
     auth: <WidgetAuthScreen />,
-  //   voice: <WidgetVoiceScreen />,
-  //   inbox: <WidgetInboxScreen />,
-  //   selection: <WidgetSelectionScreen />,
-  //   chat: <WidgetChatScreen />,
-  //   contact: <WidgetContactScreen />,
+    voice: <p>Voice</p>,
+    inbox: <p>Inbox</p>,
+    selection: <p>Selection</p>,
+    chat: <p>Chat</p>,
+    contact: <p>Contact</p>,
   }
 
   return (
     <main className="flex h-full w-full flex-col overflow-hidden rounded-xl border bg-muted">
-      {/* {screenComponents[screen]} */}
-      widget view: {organizationId}
+      {screenComponents[screen]}
     </main>
   );
 };
