@@ -77,7 +77,7 @@ export const WidgetLoadingScreen = ({ organizationId }: { organizationId: string
 
     if (!contactSessionId) {
       setSessionValid(false);
-      setStep("settings");
+      setStep("done");
       return;
     }
 
@@ -86,11 +86,11 @@ export const WidgetLoadingScreen = ({ organizationId }: { organizationId: string
     validateContactSession({ contactSessionId })
       .then((result) => {
         setSessionValid(result.valid);
-        setStep("settings");
+        setStep("done");
       })
       .catch(() => {
         setSessionValid(false);
-        setStep("settings");
+        setStep("done");
       })
   }, [step, contactSessionId, validateContactSession, setLoadingMessage]);
 
