@@ -6,7 +6,7 @@ import { screenAtom } from "@/modules/widget/atoms/widget-atoms";
 import { WidgetErrorScreen } from "@/modules/widget/ui/screens/widget-error-screen";
 import { WidgetLoadingScreen } from "@/modules/widget/ui/screens/widget-loading-screen";
 import { WidgetSelectionScreen } from "@/modules/widget/ui/screens/widget-selection-screen";
-// import { WidgetChatScreen } from "@/modules/widget/ui/screens/widget-chat-screen";
+import { WidgetChatScreen } from "@/modules/widget/ui/screens/widget-chat-screen";
 // import { WidgetInboxScreen } from "../screens/widget-inbox-screen";
 // import { WidgetVoiceScreen } from "../screens/widget-voice-screen";
 // import { WidgetContactScreen } from "../screens/widget-contact-screen";
@@ -25,7 +25,7 @@ export const WidgetView = ({ organizationId }: Props) => {
     voice: <p>Voice</p>,
     inbox: <p>Inbox</p>,
     selection: <WidgetSelectionScreen />,
-    chat: <p>Chat</p>,
+    chat: <WidgetChatScreen />,
     contact: <p>Contact</p>,
   }
 
