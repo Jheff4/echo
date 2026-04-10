@@ -4,6 +4,7 @@ import { ConvexError, v } from "convex/values";
 // import { supportAgent } from "../system/ai/agents/supportAgent";
 // import { MessageDoc, saveMessage } from "@convex-dev/agent";
 import { paginationOptsValidator } from "convex/server";
+import { supportAgent } from "../system/supportAgent";
 
 export const getMany = query({
   args: {
@@ -137,7 +138,9 @@ export const create = mutation({
     //   },
     // });
 
-    const threadId = "test";
+    const { threadId } = await supportAgent.createThread(ctx, {
+      userId: args.organizationId,
+    });
 
     const conversationId = await ctx.db.insert("conversations", {
       contactSessionId: session._id,
