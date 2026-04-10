@@ -4,7 +4,7 @@ import { ConvexError, v } from "convex/values";
 // import { supportAgent } from "../system/ai/agents/supportAgent";
 // import { MessageDoc, saveMessage } from "@convex-dev/agent";
 import { paginationOptsValidator } from "convex/server";
-import { supportAgent } from "../system/supportAgent";
+import { supportAgent } from "../system/ai/agents/supportAgent";
 
 export const getMany = query({
   args: {
