@@ -5,6 +5,7 @@ import { ConvexError, v } from "convex/values";
 // import { MessageDoc, saveMessage } from "@convex-dev/agent";
 import { paginationOptsValidator } from "convex/server";
 import { supportAgent } from "../system/ai/agents/supportAgent";
+import { saveMessage } from "@convex-dev/agent";
 
 export const getMany = query({
   args: {
@@ -115,9 +116,9 @@ export const create = mutation({
     }
 
     // This refreshes the user's session if they are within the threshold
-    // await ctx.runMutation(internal.system.contactSessions.refresh, {
-    //   contactSessionId: args.contactSessionId,
-    // });
+    await ctx.runMutation(internal.system.contactSessions.refresh, {
+      contactSessionId: args.contactSessionId,
+    });
 
     // const widgetSettings = await ctx.db
     //   .query("widgetSettings")
@@ -126,22 +127,18 @@ export const create = mutation({
     //   )
     //   .unique();
 
-    // const { threadId } = await supportAgent.createThread(ctx, {
-    //   userId: args.organizationId,
-    // });
-
-    // await saveMessage(ctx, components.agent, {
-    //   threadId,
-    //   message: {
-    //     role: "assistant",
-    //     content: widgetSettings?.greetMessage || "Hello, how can I help you today?",
-    //   },
-    // });
-
     const { threadId } = await supportAgent.createThread(ctx, {
       userId: args.organizationId,
     });
 
+    await saveMessage(ctx, components.agent, {
+      threadId,
+      message: {
+        role: "assistant",
+        content: "Hello, how can I help you today?",
+      },
+    });
+    
     const conversationId = await ctx.db.insert("conversations", {
       contactSessionId: session._id,
       status: "unresolved",
