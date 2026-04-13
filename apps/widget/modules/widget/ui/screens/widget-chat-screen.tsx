@@ -8,7 +8,7 @@ import { WidgetHeader } from "@/modules/widget/ui/components/widget-header";
 import { Button } from "@workspace/ui/components/button";
 import { useAtomValue, useSetAtom } from "jotai";
 import { ArrowLeftIcon, MenuIcon } from "lucide-react";
-// import { DicebearAvatar } from "@workspace/ui/components/dicebear-avatar";
+import { DicebearAvatar } from "@workspace/ui/components/dicebear-avatar";
 import { useInfiniteScroll } from "@workspace/ui/hooks/use-infinite-scroll";
 import { InfiniteScrollTrigger } from "@workspace/ui/components/infinite-scroll-trigger";
 import { contactSessionIdAtomFamily, conversationIdAtom, organizationIdAtom, screenAtom, widgetSettingsAtom } from "../../atoms/widget-atoms";
@@ -154,12 +154,11 @@ export const WidgetChatScreen = () => {
                   <AIResponse>{message.text}</AIResponse>
                 </AIMessageContent>
                 {message.role === "assistant" && (
-                  <>assistant</>
-                  // <DicebearAvatar
-                  //   imageUrl="/logo.svg"
-                  //   seed="assistant"
-                  //   size={32}
-                  // />
+                  <DicebearAvatar
+                    imageUrl="/logo.svg"
+                    seed="assistant"
+                    size={32}
+                  />
                 )}
               </AIMessage>
             )
