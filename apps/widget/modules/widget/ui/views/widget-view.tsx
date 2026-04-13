@@ -7,7 +7,7 @@ import { WidgetErrorScreen } from "@/modules/widget/ui/screens/widget-error-scre
 import { WidgetLoadingScreen } from "@/modules/widget/ui/screens/widget-loading-screen";
 import { WidgetSelectionScreen } from "@/modules/widget/ui/screens/widget-selection-screen";
 import { WidgetChatScreen } from "@/modules/widget/ui/screens/widget-chat-screen";
-// import { WidgetInboxScreen } from "../screens/widget-inbox-screen";
+import { WidgetInboxScreen } from "../screens/widget-inbox-screen";
 // import { WidgetVoiceScreen } from "../screens/widget-voice-screen";
 // import { WidgetContactScreen } from "../screens/widget-contact-screen";
 
@@ -23,7 +23,7 @@ export const WidgetView = ({ organizationId }: Props) => {
     error: <WidgetErrorScreen />,
     auth: <WidgetAuthScreen />,
     voice: <p>Voice</p>,
-    inbox: <p>Inbox</p>,
+    inbox: <WidgetInboxScreen />,
     selection: <WidgetSelectionScreen />,
     chat: <WidgetChatScreen />,
     contact: <p>Contact</p>,

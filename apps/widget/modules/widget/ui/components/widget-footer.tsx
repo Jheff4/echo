@@ -5,7 +5,7 @@ import { HomeIcon, InboxIcon } from "lucide-react"
 import { screenAtom } from "../../atoms/widget-atoms";
 
 export const WidgetFooter = () => {
-  const screen = "selection"; // TODO: get from atom
+  const screen = useAtomValue(screenAtom);
   const setScreen = useSetAtom(screenAtom);
 
   return (
@@ -27,7 +27,7 @@ export const WidgetFooter = () => {
         variant="ghost"
       >
         <InboxIcon
-          // className={cn("size-5", screen === "inbox" && "text-primary")}
+          className={cn("size-5", screen === "inbox" && "text-primary")}
         />
       </Button>
     </footer>
