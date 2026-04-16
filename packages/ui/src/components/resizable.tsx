@@ -7,8 +7,9 @@ import { cn } from "@workspace/ui/lib/utils"
 
 function ResizablePanelGroup({
   className,
+  direction,
   ...props
-}: ResizablePrimitive.GroupProps) {
+}: ResizablePrimitive.GroupProps & { direction: "horizontal" | "vertical" }) {
   return (
     <ResizablePrimitive.Group
       data-slot="resizable-panel-group"
