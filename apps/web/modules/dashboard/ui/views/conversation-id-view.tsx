@@ -282,6 +282,7 @@ export const ConversationIdViewLoading = () => {
           })}
         </AIConversationContent>
       </AIConversation>
+
       <div className="p-2">
         <AIInput>
           <AIInputTextarea
