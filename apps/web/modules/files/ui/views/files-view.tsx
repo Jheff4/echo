@@ -51,6 +51,7 @@ export const FilesView = () => {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
   const [selectedFile, setSelectedFile] = useState<PublicFile | null>(null);
+  
   const handleDeleteClick = (file: PublicFile) => {
     setSelectedFile(file);
     setDeleteDialogOpen(true);
