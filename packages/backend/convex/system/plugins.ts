@@ -17,6 +17,7 @@ export const upsert = internalMutation({
     
     if (existingPlugin) {
       await ctx.db.patch(existingPlugin._id, {
+        organizationId: args.organizationId,
         service: args.service,
         secretName: args.secretName,
       });

@@ -3,6 +3,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 
 import "@workspace/ui/globals.css"
 import { Providers } from "@/components/providers"
+import { Toaster } from "@workspace/ui/components/sonner"
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -25,7 +26,10 @@ export default function RootLayout({
         <body
           className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
         >
-          <Providers>{children}</Providers>
+          <Providers>
+            <Toaster />
+            {children}
+          </Providers>
         </body>
       </html>
     </ClerkProvider>
