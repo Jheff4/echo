@@ -133,7 +133,7 @@ export const create = mutation({
       threadId,
       message: {
         role: "assistant",
-        content: "Hello, how can I help you today?",
+        content: widgetSettings?.greetMessage || "Hello, how can I help you today?",
       },
     });
     

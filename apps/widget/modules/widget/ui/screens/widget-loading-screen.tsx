@@ -77,7 +77,7 @@ export const WidgetLoadingScreen = ({ organizationId }: { organizationId: string
 
     if (!contactSessionId) {
       setSessionValid(false);
-      setStep("done");
+      setStep("settings");
       return;
     }
 
@@ -86,38 +86,38 @@ export const WidgetLoadingScreen = ({ organizationId }: { organizationId: string
     validateContactSession({ contactSessionId })
       .then((result) => {
         setSessionValid(result.valid);
-        setStep("done");
+        setStep("settings");
       })
       .catch(() => {
         setSessionValid(false);
-        setStep("done");
+        setStep("settings");
       })
   }, [step, contactSessionId, validateContactSession, setLoadingMessage]);
 
   // Step 3: Load Widget Settings
-  // const widgetSettings = useQuery(api.public.widgetSettings.getByOrganizationId, 
-  //   organizationId ? {
-  //     organizationId,
-  //   } : "skip",
-  // );
-  // useEffect(() => {
-  //   if (step !== "settings") {
-  //     return;
-  //   }
+  const widgetSettings = useQuery(api.public.widgetSettings.getByOrganizationId, 
+    organizationId ? {
+      organizationId,
+    } : "skip",
+  );
+  useEffect(() => {
+    if (step !== "settings") {
+      return;
+    }
 
-  //   setLoadingMessage("Loading widget settings...");
+    setLoadingMessage("Loading widget settings...");
 
-  //   if (widgetSettings !== undefined) {
-  //     setWidgetSettings(widgetSettings);
-  //     setStep("vapi");
-  //   }
-  // }, [
-  //   step,
-  //   widgetSettings,
-  //   setStep,
-  //   setWidgetSettings,
-  //   setLoadingMessage,
-  // ]);
+    if (widgetSettings !== undefined) {
+      setWidgetSettings(widgetSettings);
+      setStep("done");
+    }
+  }, [
+    step,
+    widgetSettings,
+    setStep,
+    setWidgetSettings,
+    setLoadingMessage,
+  ]);
 
   // // Step 4: Load Vapi secrets (Optional)
   // const getVapiSecrets = useAction(api.public.secrets.getVapiSecrets);
