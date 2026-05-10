@@ -44,6 +44,9 @@ importers:
       '@workspace/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      bowser:
+        specifier: ^2.14.1
+        version: 2.14.1
       convex:
         specifier: ^1.31.7
         version: 1.34.1(@clerk/clerk-react@5.61.4(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)
