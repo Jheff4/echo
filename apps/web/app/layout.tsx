@@ -21,7 +21,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider 
+      appearance={{
+        variables: {
+          colorPrimary: "#3C82F6",
+        }
+      }}
+    >
       <html lang="en" suppressHydrationWarning>
         <body
           className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
