@@ -1,6 +1,6 @@
 import { ConvexError, v } from "convex/values";
 import { internalMutation, internalQuery } from "../_generated/server";
-// import { SESSION_DURATION_MS } from "../constants";
+import { SESSION_DURATION_MS } from "../constants";
 
 const AUTO_REFRESH_THRESHOLD_MS = 4 * 60 * 60 * 1000;
 
@@ -28,7 +28,7 @@ export const refresh = internalMutation({
     const timeRemaining = contactSession.expiresAt - Date.now();
 
     if (timeRemaining < AUTO_REFRESH_THRESHOLD_MS) {
-      const newExpiresAt = Date.now() + 24 * 60 * 60 * 1000;
+      const newExpiresAt = Date.now() + SESSION_DURATION_MS;
 
       await ctx.db.patch(args.contactSessionId, {
         expiresAt: newExpiresAt,
