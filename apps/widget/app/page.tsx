@@ -13,7 +13,7 @@ export default function Page({ searchParams }: Props) {
   const { organizationId } = use(searchParams);
 
   return (
-    <div className="flex items-center justify-center min-h-svh max-w-md mx-auto w-full">
+    <div className="flex items-center justify-center h-screen min-h-svh max-w-md mx-auto w-full">
       <WidgetView organizationId={organizationId} />
     </div>
   )
